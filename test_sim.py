@@ -55,17 +55,26 @@ def extend_vocabulary(liste, min_sim = 0.5, min_nb = 20):
   #print(json.dumps(dic, indent = 2, ensure_ascii=False))
   return dic
 
-if __name__=="__main__":
-    import json
-    voc_dir = "vocabularies"
-    base_name = "test_voc_fr.json"
-    base_voc_path = f"{voc_dir}/{base_name}"
+def create_extended_voc(language = "fr", force = False):
+  #TODO use langauge parameter
+  voc_dir = "vocabularies"
+  base_name = f"test_voc_{language}.json"
+  base_voc_path = f"{voc_dir}/{base_name}"
+  extended_voc_path = f"{voc_dir}/extended_{base_name}", "w"
+  if os.path.exists(extended_voc_path):
+    with open(extended_voc_path) as f:
+        extended_voc = json.load(f)
+  else:
     with open(base_voc_path) as f:
-        liste = json.load(f)
+      liste = json.load(f)
     extended_voc = extend_vocabulary(liste)
-    with open(f"{voc_dir}/extended_{base_name}", "w") as w:
-        w.write(json.dumps(extended_voc, indent =2))
+    with open(extended_voc_path) as w:
+      w.write(json.dumps(extended_voc, indent =2))
+  return extended_voc
+if __name__=="__main__":
+  import json
+  extended_voc = create_extended_voc(language = "fr"):
 
-    for sentence in ["J'aime le sport", "En sport moi c'est le foot", "Je kiffe Jésus et les églises", "toto titi"]:
-      print(sentence)
-      print(get_sentence_thematic(extended_voc, sentence))
+  for sentence in ["J'aime le sport", "En sport moi c'est le foot", "Je kiffe Jésus et les églises", "toto titi"]:
+    print(sentence)
+    print(get_sentence_thematic(extended_voc, sentence))
