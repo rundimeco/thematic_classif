@@ -1,0 +1,18 @@
+[
+  ["sport de balle", "FFF", "NBA", "Foot", "football", "CFB", "Baseball", "MLS", "cricket", "ultimate", "Basketball"],
+  ["religion", "Chrétienté", "Boudhisme", "islam", "Judaïsme", "Catholicisme", "Juif"], 
+  ["finance", "finance personnelle", "placement", "Business", "affaires", "actions", "PMAs", "Immobilier ", "bourse", "Agents immobiliers"],
+  ["parentalité", "Parentalité", "grossesse", "Maman"], 
+  ["boissons", "Brassage à la maison", "bière", "thé", "vin", "Bière Artisanale"], 
+  ["photo", "photographie", "astrophotographie", "Critique Photo", "Photographie de mariage"], 
+  ["cardio", "vélo", "course", "nage", "triathlon"], 
+  ["juridique", "conseil juridique", "fac de droit"], 
+  ["fitness", "Bodybuilding", "musculation", "fitness", "haltérophilie", "entraînement"], 
+  ["médecine", "médecine", "Fac de médecine", "médical", "infirmier", "urgences", "docteurs", "doctissimo", "Infirmière", "ambulanciers"],
+  ["militaire", "Militaire", "Marine", "flotte de guerre", "armée de l’air", "marins"], 
+  ["arts martiaux", "Jiu-jitsu", "art martial", "Muay-Thaï", "karaté", "kungfu", "taekwondo", "Krav-maga"], 
+  ["addiction", "arrêter de boire", "arrêter de fumer", "Addiction", "dépendance", "alcoolisme"],
+  ["tissu", "tricot", "matelassage", "crochet", "couture", "broderie"], 
+  ["urgence", "premiers secours", "police", "lutte contre les incendies", "pompiers"]
+] 
+
