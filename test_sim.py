@@ -23,6 +23,7 @@ def classify_sentences(sentence_list):
 
 def get_sentence_thematic(vocab, model, sentence):
   liste_res = []
+  #TODO: catch cases when no word of input sentence is found
   for thematic, word_list in vocab.items():
       #thematic_sentence = " ".join(word_list)
       liste_dists = []
@@ -33,7 +34,10 @@ def get_sentence_thematic(vocab, model, sentence):
             except:
               continue
             liste_dists.append(dist) 
-      liste_res.append([st.mean(liste_dists), thematic])
+      val = liste_dists[0] 
+      if len(liste_dists)>0:
+        val = st.mean(liste_dists)
+      liste_res.append([val, thematic])
   #print(sorted(liste_res)[:5])
   return [sorted(liste_res)[0][1]]
 
@@ -54,9 +58,10 @@ def extend_vocabulary(liste, min_sim = 0.5, min_nb = 20):
           #if len(tokens)>1:
         for token, sim in sims:
           if sim>min_sim:
-            this_sims.setdefault(token, sim)
+            this_sims.setdefault(token, [])
             #update mean
-            this_sims[token] = st.mean([this_sims[token], sim])
+            this_sims[token].append(sim)
+      this_sims = {token : st.mean(L) if len(L)>1 else L[0]}
       selected_tokens = [x[1]  for x in sorted([[s, w] for w, s in this_sims.items()], reverse=True)][:min_nb]
       dic[key] = selected_tokens
   #print(json.dumps(dic, indent = 2, ensure_ascii=False))
